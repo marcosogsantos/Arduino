@@ -5,7 +5,7 @@ int led2 = 5;
 int led3 = 6;
 int led4 = 7;
 
-// agroup all leds in one array
+// group all leds in one array
 int pins[] = {led0,led1,led2,led3,led4};
 
 // set first led to serial input sincronization
