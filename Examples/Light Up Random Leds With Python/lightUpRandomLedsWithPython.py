@@ -35,12 +35,6 @@ while True:
     arduinoOutput = arduino.readline().decode('utf-8').replace('\n','')
     print(datetime.datetime.now(), arduinoOutput)
 
-    # check if message is complete
-    if ";" in arduinoOutput:
-        # clean input and output data
-        arduino.flushInput()
-        arduino.flushOutput()
-
     # check if passed 1 second since last random message setup
     if (timer(1)):
 
@@ -49,6 +43,10 @@ while True:
         
         # reset timer
         oldTime = datetime.datetime.now()
+
+    # clean input and output data
+    arduino.flushInput()
+    arduino.flushOutput()
 
     # add 100ms delay
     time.sleep(.1)
