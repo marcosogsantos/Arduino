@@ -8,7 +8,7 @@ int led4 = 7;
 // group all leds in one array
 int pins[] = {led0,led1,led2,led3,led4};
 
-// set first led to serial input sincronization
+// set first led to serial input synchronization
 int actualPin = led0;
 
 // set final message as global var
