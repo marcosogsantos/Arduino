@@ -9,7 +9,7 @@ int led4 = 7;
 int pins[] = {led0,led1,led2,led3,led4};
 
 // set first led to serial input synchronization
-int actualPin = led0;
+int actualPinIndex = 0;
 
 // set final message as global var
 String finalMessage;
@@ -45,18 +45,18 @@ void loop() {
     
     // ligh up led if byte string its equal "1" otherwise turn off
     if (String(incomingByte) == "1"){
-      digitalWrite(actualPin,HIGH);
+      digitalWrite(pins[actualPinIndex],HIGH);
     } else {
-      digitalWrite(actualPin,LOW);
+      digitalWrite(pins[actualPinIndex],LOW);
     }
 
     // go to next pin
-    actualPin++;
+    actualPinIndex++;
     
     // find message end
     if (String(incomingByte) == ";"){
       // back to first led
-      actualPin=led0;
+      actualPinIndex=0;
 
       // send final message back
       Serial.println(finalMessage);
